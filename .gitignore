@@ -1,5 +1,6 @@
 /.terraform/*
 account.json
 app.config
-__pycache__/*
+/twitterlib/__pycache__/*
 bootstrap.sh
+*.pyc
