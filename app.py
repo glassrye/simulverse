@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired
 from flask import Flask, url_for, redirect, sessions, session
 
 app = Flask(__name__)
-app.config['secret-key'] = 'jbk'
+app.config['secret-key'] = Config.APP_SEC_KEY
 
 class Config(object):
     API_KEY = os.environ['MARION_API_KEY']
