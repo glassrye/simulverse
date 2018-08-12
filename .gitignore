@@ -1,4 +1,5 @@
 /.terraform/*
 account.json
 app.config
+__pycache__/*
 bootstrap.sh
