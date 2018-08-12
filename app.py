@@ -1,20 +1,32 @@
 #!/usr/bin/env python
 import json
+import os
 from twitterlib.handlers import TwitterBase
+from wtforms import Form
+from wtforms import TextAreaField, SelectField, SubmitField
+from wtforms.validators import DataRequired
 from flask import Flask, url_for, redirect, sessions, session
 
 app = Flask(__name__)
 app.config['secret-key'] = 'jbk'
 
+class Config(object):
+    API_KEY = os.environ['MARION_API_KEY']
+    API_SECRET = os.environ['MARION_API_SECRET']
+    APP_SEC_KEY = os.environ['MARION_APP_SEC_KEY']
+
+
+class MyBaseForm(Form):
+    pass
+
+class TwitForm(MyBaseForm):
+    tweet_message = TextAreaField('')
+    pass
 
 def main():
-    # TODO: Move this to a configuration or environment file (pref environment)
-    API_KEY = config.state
-    API_SECRET = config.state
-
     my_update = TwitterBase('https://api.twitter.com',
-                            api_key=API_KEY,
-                            api_secret=API_SECRET)
+                            api_key=Config.API_KEY,
+                            api_secret=Config.API_SECRET)
 
     my_status = [my_update.return_my_status().decode().replace("'", '"')]
 
