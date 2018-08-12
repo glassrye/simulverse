@@ -1,5 +1,6 @@
 import requests as rq
 import oauth2 as oauth
+import os
 from urllib.parse import urlencode
 
 
@@ -21,8 +22,8 @@ class OauthHandler(object):
 
         :return:
         """
-        CONSUMER_KEY = 'PWUxsY9gZ71OTzjF6wPIit5Pt'.encode('utf-8')
-        CONSUMER_SECRET = 'YqaSN6RIYJRxEgFQb5KkXsDtYmDUmTwkO4rTxBMcNOoRyA558u'.encode('utf-8')
+        CONSUMER_SECRET = os.environ['CONSUMER_SECRET'].encode('utf-8')
+        CONSUMER_KEY = os.environ['CONSUMER_KEY'].encode('utf-8')
 
         _consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
         _token = oauth.Token(key=self.api_key, secret=self.api_secret)

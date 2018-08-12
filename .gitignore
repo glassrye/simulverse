@@ -4,3 +4,4 @@ app.config
 /twitterlib/__pycache__/*
 bootstrap.sh
 *.pyc
+.terraform*
