@@ -2,6 +2,6 @@
 account.json
 app.config
 /twitterlib/__pycache__/*
-bootstrap.sh
+/startup_scripts/bootstrap.sh
 *.pyc
 .terraform*
