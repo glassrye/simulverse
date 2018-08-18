@@ -13,8 +13,8 @@ class OauthHandler(object):
         :param api_key:
         :param api_secret:
         """
-        CONSUMER_SECRET = os.environ['CONSUMER_SECRET'].encode('utf-8')
-        CONSUMER_KEY = os.environ['CONSUMER_KEY'].encode('utf-8')
+        self.CONSUMER_SECRET = os.environ['CONSUMER_SECRET'].encode('utf-8')
+        self.CONSUMER_KEY = os.environ['CONSUMER_KEY'].encode('utf-8')
         self.base_url = base_url
         self.api_key = api_key
         self.api_secret = api_secret
