@@ -13,6 +13,8 @@ class OauthHandler(object):
         :param api_key:
         :param api_secret:
         """
+        CONSUMER_SECRET = os.environ['CONSUMER_SECRET'].encode('utf-8')
+        CONSUMER_KEY = os.environ['CONSUMER_KEY'].encode('utf-8')
         self.base_url = base_url
         self.api_key = api_key
         self.api_secret = api_secret
@@ -22,21 +24,14 @@ class OauthHandler(object):
 
         :return:
         """
-        CONSUMER_SECRET = os.environ['CONSUMER_SECRET'].encode('utf-8')
-        CONSUMER_KEY = os.environ['CONSUMER_KEY'].encode('utf-8')
-
-        _consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
+        _consumer = oauth.Consumer(key=self.CONSUMER_KEY, secret=self.CONSUMER_SECRET)
         _token = oauth.Token(key=self.api_key, secret=self.api_secret)
         _client = oauth.Client(_consumer, _token)
         _resp, _content = _client.request(self.base_url, method='GET', body="".encode('utf-8'), headers=None)
         return _content
 
     def post_oauth_url(self):
-
-        CONSUMER_KEY = os.environ['CONSUMER_KEY'].encode('utf-8')
-        CONSUMER_SECRET = os.environ['CONSUMER_SECRET'].encode('utf-8')
-
-        _consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
+        _consumer = oauth.Consumer(key=self.CONSUMER_KEY, secret=self.CONSUMER_SECRET)
         _token = oauth.Token(key=self.api_key, secret=self.api_secret)
         _client = oauth.Client(_consumer, _token)
         _resp, _content = _client.request(self.base_url, method='POST', body="".encode('utf-8'), headers=None)
