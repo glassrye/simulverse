@@ -5,3 +5,4 @@ app.config
 /startup_scripts/bootstrap.sh
 *.pyc
 .terraform*
+bootstrap.sh
