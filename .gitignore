@@ -6,3 +6,4 @@ app.config
 *.pyc
 .terraform*
 bootstrap.sh
+__pycache__/*
