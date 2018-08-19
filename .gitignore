@@ -1,0 +1,9 @@
+/.terraform/*
+account.json
+app.config
+/twitterlib/__pycache__/*
+/infra/startup_scripts/bootstrap.sh
+*.pyc
+.terraform*
+bootstrap.sh
+__pycache__/*
